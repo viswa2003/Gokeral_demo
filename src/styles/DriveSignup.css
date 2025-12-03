@@ -1,0 +1,99 @@
+:root {
+    --form-background: #ffffff;
+    --page-background: #f0f4f8;
+    --primary-text: #071018;
+    --secondary-text: #5a6e80;
+    --input-border: #cdd7e1;
+    --input-focus-border: #082434;
+    --button-background: #082434;
+    --button-text: #ffffff;
+    --button-hover-background: #1a3a4f;
+    --error-text: #d93025;
+  }
+  
+  .signup-page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--page-background);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  
+  .signup-form-container {
+    background-color: var(--form-background);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    margin: 20px;
+  }
+  
+  .signup-form h2 {
+    color: var(--primary-text);
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .signup-subtext {
+    color: var(--secondary-text);
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    color: var(--primary-text);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--primary-text);
+    transition: border-color 0.2s ease-in-out;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px rgba(8, 36, 52, 0.1);
+  }
+  
+  .signup-button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 12px;
+  }
+  
+  .signup-button:hover {
+    background-color: var(--button-hover-background);
+  }
+
+  .error-message {
+    color: var(--error-text);
+    font-size: 14px;
+    text-align: center;
+    margin: -10px 0 15px;
+  }

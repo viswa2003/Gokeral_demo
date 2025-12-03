@@ -1,11 +1,8 @@
 import React from "react";
-import "./styles/styles.css";
-import HomePage from "./pages/HomePage";
+import DriverSignupPage from "./pages/DriverSignupPage";
 
 function App() {
-  return (
-    <HomePage />
-  );
+  return <DriverSignupPage />;
 }
 
 export default App;
