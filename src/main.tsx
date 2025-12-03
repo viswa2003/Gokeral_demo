@@ -1,9 +1,10 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes"; // imports src/routes/index.tsx
 import "./styles/styles.css";
 
 const container = document.getElementById("root");
 if (container) {
-  createRoot(container).render(<App />);
+  createRoot(container).render(<RouterProvider router={router} />);
 }

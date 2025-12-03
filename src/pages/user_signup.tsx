@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../styles/user_signup.module.css';
+import '../styles/user_signup.css'; // import plain CSS (not a CSS module)
 
 const UserSignup: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -18,54 +18,54 @@ const UserSignup: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.form}>
+    <div className="container">
+      <form onSubmit={handleSubmit} className="form">
         <h2>User Signup</h2>
-        <div className={styles.inputContainer}>
-          <label htmlFor="username" className={styles.label}>Username</label>
+        <div className="inputContainer">
+          <label htmlFor="username" className="label">Username</label>
           <input
             type="text"
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className={styles.input}
+            className="input"
             required
           />
         </div>
-        <div className={styles.inputContainer}>
-          <label htmlFor="email" className={styles.label}>Email ID</label>
+        <div className="inputContainer">
+          <label htmlFor="email" className="label">Email ID</label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={styles.input}
+            className="input"
             required
           />
         </div>
-        <div className={styles.inputContainer}>
-          <label htmlFor="password" className={styles.label}>New Password</label>
+        <div className="inputContainer">
+          <label htmlFor="password" className="label">New Password</label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className={styles.input}
+            className="input"
             required
           />
         </div>
-        <div className={styles.inputContainer}>
-          <label htmlFor="confirmPassword" className={styles.label}>Confirm Password</label>
+        <div className="inputContainer">
+          <label htmlFor="confirmPassword" className="label">Confirm Password</label>
           <input
             type="password"
             id="confirmPassword"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className={styles.input}
+            className="input"
             required
           />
         </div>
-        <button type="submit" className={styles.button}>Sign Up</button>
+        <button type="submit" className="button">Sign Up</button>
       </form>
     </div>
   );
