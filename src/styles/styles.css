@@ -143,3 +143,41 @@ html, body, #root { height: 100%; margin: 0; font-family: Inter, system-ui, -app
   .hero-left { align-items: center; text-align: center; }
   .navbar { left: 12px; right: 12px; }
 }
+
+.footer {
+  width: 100%;
+  background: #0f1720;
+  color: #fff;
+  box-sizing: border-box;
+  /* default variable is overridden by inline style height from component */
+  --footer-height: 220px;
+  height: var(--footer-height);
+  overflow: hidden; /* no scrolling inside footer */
+  z-index: 80;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Force all text inside the footer to white */
+.footer,
+.footer * {
+  color: #ffffff !important;
+}
+
+/* Ensure links inside footer are white and visible */
+.footer .col-link,
+.footer .col-link:hover {
+  color: #ffffff !important;
+  opacity: 0.95;
+  text-decoration: none;
+}
+
+/* Ensure description and contact text are white */
+.footer .footer-desc,
+.footer .contact-text {
+  color: #ffffff !important;
+}
+
+/* Slightly lighter bottom text but still white */
+.footer-bottom {
+  color: rgba(255,255,255,0.95) !important;
+}
