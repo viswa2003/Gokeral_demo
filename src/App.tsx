@@ -1,11 +1,11 @@
 import React from "react";
+import "./styles/styles.css";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <div>
-      Gokeral Demo
-    </div>
-  )
+    <HomePage />
+  );
 }
 
 export default App;
