@@ -166,125 +166,47 @@ body,
 
 /* responsive */
 @media (max-width: 980px) {
-  .hero-content {
-    flex-direction: column;
-    padding: 24px;
-    gap: 20px;
-  }
-
-  .hero-right {
-    width: 100%;
-    max-width: 420px;
-  }
-
-  .hero-headline {
-    font-size: 42px;
-    text-align: center;
-  }
-
-  .hero-left {
-    align-items: center;
-    text-align: center;
-  }
-
-  .navbar {
-    left: 12px;
-    right: 12px;
-  }
+  .hero-content { flex-direction: column; padding: 24px; gap: 20px; }
+  .hero-right { width: 100%; max-width: 420px; }
+  .hero-headline { font-size: 42px; text-align: center; }
+  .hero-left { align-items: center; text-align: center; }
+  .navbar { left: 12px; right: 12px; }
 }
 
-/* Modal (login) */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 200;
-}
-
-.modal-panel {
-  width: 420px;
-  max-width: calc(100% - 48px);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 12px 40px rgba(2, 14, 18, 0.6);
-  border-radius: 12px;
-  padding: 18px;
-  backdrop-filter: blur(8px) saturate(120%);
-  color: #fff;
-}
-
-.modal-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.modal-title {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.role-toggle {
-  display: inline-flex;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 4px;
-  border-radius: 999px;
-}
-
-.role-option {
-  padding: 6px 10px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.role-option.active {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  font-weight: 700;
-}
-
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.modal-input {
+.footer {
   width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(0, 0, 0, 0.2);
+  background: #0f1720;
   color: #fff;
+  box-sizing: border-box;
+  /* default variable is overridden by inline style height from component */
+  --footer-height: 220px;
+  height: var(--footer-height);
+  overflow: hidden; /* no scrolling inside footer */
+  z-index: 80;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-.modal-button {
-  margin-top: 6px;
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  background: #ffffff;
-  color: #082434;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
+/* Force all text inside the footer to white */
+.footer,
+.footer * {
+  color: #ffffff !important;
 }
 
-.signup-link {
-  margin-top: 8px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.9);
-  cursor: pointer;
-  font-weight: 600;
+/* Ensure links inside footer are white and visible */
+.footer .col-link,
+.footer .col-link:hover {
+  color: #ffffff !important;
+  opacity: 0.95;
+  text-decoration: none;
 }
 
-.signup-link:hover {
-  text-decoration: underline;
+/* Ensure description and contact text are white */
+.footer .footer-desc,
+.footer .contact-text {
+  color: #ffffff !important;
+}
+
+/* Slightly lighter bottom text but still white */
+.footer-bottom {
+  color: rgba(255,255,255,0.95) !important;
 }

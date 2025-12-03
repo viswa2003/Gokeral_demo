@@ -1,9 +1,8 @@
-import React ,{useState} from "react";
-import Navbar from "../components/navbar";
-import homebg from "../assets/homebg.jpg"
+import React from "react";
+import Navbar from "../components/Navbar";
+import homebg from "../assets/homebg.jpg";
 import "../styles/styles.css";
-import LoginModal from "../components/modals/login_modal";
-
+import Footer from "../components/Footer";
 
 export default function HomePage() {
   const [loginOpen, setLoginOpen] = useState(false);
@@ -39,17 +38,9 @@ export default function HomePage() {
           </div>
         </div>
       </header>
-      <LoginModal
-        isOpen={loginOpen}
-        onClose={() => setLoginOpen(false)}
-        onLogin={(p) => {
-          console.log("Login payload:", p);
-          setLoginOpen(false);
-        }}
-        onSignup={() => {
-          console.log("Navigate to signup (implement routing)");
-        }}
-      />
+
+      {/* reusable footer component */}
+      <Footer />
     </div>
   );
 }
