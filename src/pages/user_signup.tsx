@@ -13,61 +13,71 @@ const UserSignup: React.FC = () => {
       alert("Passwords don't match!");
       return;
     }
-    // Handle signup logic here, e.g., API call
     console.log('Signing up with:', { username, email, password });
   };
 
   return (
-    <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <h2>User Signup</h2>
-        <div className={styles.inputContainer}>
-          <label htmlFor="username" className={styles.label}>Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className={styles.input}
-            required
-          />
-        </div>
-        <div className={styles.inputContainer}>
-          <label htmlFor="email" className={styles.label}>Email ID</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className={styles.input}
-            required
-          />
-        </div>
-        <div className={styles.inputContainer}>
-          <label htmlFor="password" className={styles.label}>New Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={styles.input}
-            required
-          />
-        </div>
-        <div className={styles.inputContainer}>
-          <label htmlFor="confirmPassword" className={styles.label}>Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            className={styles.input}
-            required
-          />
-        </div>
-        <button type="submit" className={styles.button}>Sign Up</button>
-      </form>
-    </div>
+    <>
+      {/* 🔹 Background Image */}
+      <div className={styles.pageBackground}></div>
+
+      {/* 🔹 Signup Form */}
+      <div className={styles.container}>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <h2>User Signup</h2>
+
+          <div className={styles.inputContainer}>
+            <label htmlFor="username" className={styles.label}>Username</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className={styles.input}
+              required
+            />
+          </div>
+
+          <div className={styles.inputContainer}>
+            <label htmlFor="email" className={styles.label}>Email ID</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={styles.input}
+              required
+            />
+          </div>
+
+          <div className={styles.inputContainer}>
+            <label htmlFor="password" className={styles.label}>New Password</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={styles.input}
+              required
+            />
+          </div>
+
+          <div className={styles.inputContainer}>
+            <label htmlFor="confirmPassword" className={styles.label}>Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className={styles.input}
+              required
+            />
+          </div>
+
+          <button type="submit" className={styles.button}>Sign Up</button>
+        </form>
+      </div>
+    </>
   );
 };
 
