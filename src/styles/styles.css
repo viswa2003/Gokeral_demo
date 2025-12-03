@@ -8,8 +8,17 @@
   --navbar-height: 68px;
 }
 
-* { box-sizing: border-box; }
-html, body, #root { height: 100%; margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
 
 .page-root {
   position: relative;
@@ -30,17 +39,33 @@ html, body, #root { height: 100%; margin: 0; font-family: Inter, system-ui, -app
   justify-content: flex-end;
   padding: 12px 20px;
   z-index: 60;
-  background: linear-gradient(90deg, rgba(0,0,0,0.28), rgba(0,0,0,0));
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
   color: #fff;
   backdrop-filter: blur(6px);
   border-radius: 999px;
 }
 
-.navbar-left { display: flex; align-items: center; gap: 18px; margin-right: 10px; }
-.logo-text { font-weight: 700; font-size: 18px; color: #fff; }
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+}
 
 /* links */
-.nav-links { display: flex; gap: 12px; align-items: center; justify-content: center;}
+.nav-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
 .nav-link {
   color: #fff;
   text-decoration: none;
@@ -48,7 +73,10 @@ html, body, #root { height: 100%; margin: 0; font-family: Inter, system-ui, -app
   opacity: 0.95;
   padding: 6px 8px;
 }
-.nav-link:hover { opacity: 1; }
+
+.nav-link:hover {
+  opacity: 1;
+}
 
 /* CTA */
 .nav-cta {
@@ -58,7 +86,7 @@ html, body, #root { height: 100%; margin: 0; font-family: Inter, system-ui, -app
   color: #082434;
   text-decoration: none;
   font-weight: 700;
-  box-shadow: 0 6px 18px rgba(2,14,18,0.18);
+  box-shadow: 0 6px 18px rgba(2, 14, 18, 0.18);
 }
 
 /* HERO */
@@ -73,7 +101,8 @@ html, body, #root { height: 100%; margin: 0; font-family: Inter, system-ui, -app
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 30px; /* leave space under navbar */
+  padding-top: 30px;
+  /* leave space under navbar */
 }
 
 .hero-overlay {
@@ -117,7 +146,7 @@ html, body, #root { height: 100%; margin: 0; font-family: Inter, system-ui, -app
   max-width: 520px;
   margin-top: 20px;
   font-size: 18px;
-  color: rgba(255,255,255,0.95);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* right column (side image) */
@@ -131,7 +160,7 @@ html, body, #root { height: 100%; margin: 0; font-family: Inter, system-ui, -app
 .hero-side-img {
   width: 100%;
   border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
   display: block;
 }
 

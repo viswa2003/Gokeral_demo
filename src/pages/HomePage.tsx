@@ -5,6 +5,7 @@ import "../styles/styles.css";
 import Footer from "../components/Footer";
 
 export default function HomePage() {
+  const [loginOpen, setLoginOpen] = useState(false);
   return (
     <div className="page-root">
       <Navbar
@@ -13,7 +14,7 @@ export default function HomePage() {
           { label: "Destinations", href: "#destinations" },
           { label: "Contact", href: "#contact" },
         ]}
-        cta={{ label: "Login", href: "#login" }}
+        cta={{ label: "Login", onClick: () => setLoginOpen(true) }}
       />
 
       <header className="hero-container" style={{ backgroundImage: `url(${homebg})` }}>
