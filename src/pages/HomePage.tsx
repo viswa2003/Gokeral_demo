@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import homebg from "../assets/homebg.jpg";
 import "../styles/styles.css";
 import Footer from "../components/Footer";
@@ -21,8 +21,8 @@ export default function HomePage() {
         <div className="hero-content">
           <div className="hero-left">
             <h1 className="hero-headline">
-              DISCOVER KERALA 
-              
+              DISCOVER KERALA
+
               <br />
               IN COMFORT
             </h1>
