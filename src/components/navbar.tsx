@@ -4,8 +4,7 @@ type NavLink = { label: string; href: string };
 interface NavbarProps {
   links?: NavLink[];
   logo?: React.ReactNode;
-  // cta can be a simple link or a clickable action (onClick). href is optional when using onClick.
-  cta?: { label: string; href?: string; onClick?: () => void };
+  cta?: { label: string; href: string };
 }
 
 export default function Navbar({ links = [], logo, cta }: NavbarProps) {
@@ -23,15 +22,9 @@ export default function Navbar({ links = [], logo, cta }: NavbarProps) {
       </div>
 
       {cta ? (
-        cta.onClick ? (
-          <button className="nav-cta" onClick={cta.onClick} type="button">
-            {cta.label}
-          </button>
-        ) : (
-          <a className="nav-cta" href={cta.href}>
-            {cta.label}
-          </a>
-        )
+        <a className="nav-cta" href={cta.href}>
+          {cta.label}
+        </a>
       ) : null}
     </nav>
   );
