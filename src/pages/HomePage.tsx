@@ -1,9 +1,12 @@
-import React from "react";
+import React ,{useState} from "react";
 import Navbar from "../components/navbar";
 import homebg from "../assets/homebg.jpg"
 import "../styles/styles.css";
+import LoginModal from "../components/modals/login_modal";
+
 
 export default function HomePage() {
+  const [loginOpen, setLoginOpen] = useState(false);
   return (
     <div className="page-root">
       <Navbar
@@ -12,7 +15,7 @@ export default function HomePage() {
           { label: "Destinations", href: "#destinations" },
           { label: "Contact", href: "#contact" },
         ]}
-        cta={{ label: "Login", href: "#login" }}
+        cta={{ label: "Login", onClick: () => setLoginOpen(true) }}
       />
 
       <header className="hero-container" style={{ backgroundImage: `url(${homebg})` }}>
@@ -36,6 +39,17 @@ export default function HomePage() {
           </div>
         </div>
       </header>
+      <LoginModal
+        isOpen={loginOpen}
+        onClose={() => setLoginOpen(false)}
+        onLogin={(p) => {
+          console.log("Login payload:", p);
+          setLoginOpen(false);
+        }}
+        onSignup={() => {
+          console.log("Navigate to signup (implement routing)");
+        }}
+      />
     </div>
   );
 }
