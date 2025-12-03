@@ -1,7 +1,8 @@
 import React from "react";
-import Navbar from "../components/navbar";
-import homebg from "../assets/homebg.jpg"
+import Navbar from "../components/Navbar";
+import homebg from "../assets/homebg.jpg";
 import "../styles/styles.css";
+import Footer from "../components/Footer";
 
 export default function HomePage() {
   return (
@@ -36,6 +37,9 @@ export default function HomePage() {
           </div>
         </div>
       </header>
+
+      {/* reusable footer component */}
+      <Footer />
     </div>
   );
 }
