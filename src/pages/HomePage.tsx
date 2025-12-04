@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/navbar";
 import homebg from "../assets/homebg.jpg";
 import "../styles/styles.css";
 import Footer from "../components/Footer";
+import LoginModal from "../components/modals/login_modal";
 
 export default function HomePage() {
+  const [loginOpen, setLoginOpen] = useState(false);
+
   return (
     <div className="page-root">
       <Navbar
@@ -14,6 +17,19 @@ export default function HomePage() {
           { label: "Contact", href: "#contact" },
         ]}
         cta={{ label: "Login", href: "#login" }}
+        onCtaClick={() => setLoginOpen(true)}
+      />
+
+      <LoginModal
+        isOpen={loginOpen}
+        onClose={() => setLoginOpen(false)}
+        onLogin={(payload) => {
+          console.log("Login payload:", payload);
+          setLoginOpen(false);
+        }}
+        onSignup={() => {
+          console.log("Navigate to signup - implement routing");
+        }}
       />
 
       <header className="hero-container" style={{ backgroundImage: `url(${homebg})` }}>
@@ -32,9 +48,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="hero-right">
-            <img src={homebg} alt="island" className="hero-side-img" />
-          </div>
+
         </div>
       </header>
 
