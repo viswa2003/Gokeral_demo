@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import React from "react";
 import { useState, useEffect } from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> 2d927cd5182ea242b10cdc696d9ca963019397f8
 import Navbar from "../components/navbar";
 import homebg from "../assets/homebg.jpg";
 import "../styles/styles.css";
 import Footer from "../components/Footer";
+<<<<<<< HEAD
 import { Car, Truck,  MapPin, Star, Users, ArrowRight, Phone, Mail,Ambulance,Facebook, Instagram, Twitter, CheckCircle } from "lucide-react";
 
 export default function HomePage() {
@@ -45,6 +50,14 @@ export default function HomePage() {
     return () => clearInterval(timer);
   }, []);
 
+=======
+import LoginModal from "../components/modals/login_modal";
+import SignupModal from "../components/modals/signup_modal";
+
+export default function HomePage() {
+  const [loginOpen, setLoginOpen] = useState(false);
+  const [signupOpen, setSignupOpen] = useState(false);
+>>>>>>> 2d927cd5182ea242b10cdc696d9ca963019397f8
 
   return (
     <div className="page-root min-h-screen bg-cover bg-center bg-fixed" style={{ backgroundImage: `url(${homebg})` }}>
@@ -55,6 +68,35 @@ export default function HomePage() {
           { label: "Contact", href: "#contact" },
         ]}
         cta={{ label: "Login", href: "#login" }}
+        onCtaClick={() => setLoginOpen(true)}
+      />
+
+      <LoginModal
+        isOpen={loginOpen}
+        onClose={() => setLoginOpen(false)}
+        onLogin={(payload) => {
+          console.log("Login payload:", payload);
+          setLoginOpen(false);
+        }}
+        onSignup={() => {
+          // open signup modal from login modal
+          setLoginOpen(false);
+          setSignupOpen(true);
+        }}
+      />
+
+      <SignupModal
+        isOpen={signupOpen}
+        onClose={() => setSignupOpen(false)}
+        onSignup={(payload) => {
+          console.log("Signup payload:", payload);
+          setSignupOpen(false);
+        }}
+        onLogin={() => {
+          // if signup modal wants to switch back to login
+          setSignupOpen(false);
+          setLoginOpen(true);
+        }}
       />
 
       <div className="hero-container" >
@@ -62,7 +104,12 @@ export default function HomePage() {
         <div className="hero-content">
           <div className="hero-left">
             <h1 className="hero-headline">
+<<<<<<< HEAD
               DISCOVER KERALA 
+=======
+              DISCOVER KERALA
+
+>>>>>>> 2d927cd5182ea242b10cdc696d9ca963019397f8
               <br />
               IN COMFORT
             </h1>
@@ -74,6 +121,7 @@ export default function HomePage() {
         </div>
       </div>
 
+<<<<<<< HEAD
       <section id="vehicles" className="py-20 bg-[linear-gradient(90deg,var(--overlay-color),var(--overlay-color))] backdrop-blur-[6px]">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -103,6 +151,9 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+=======
+
+>>>>>>> 2d927cd5182ea242b10cdc696d9ca963019397f8
         </div>
       </section>
 
