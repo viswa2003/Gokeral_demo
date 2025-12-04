@@ -5,9 +5,10 @@ interface NavbarProps {
   links?: NavLink[];
   logo?: React.ReactNode;
   cta?: { label: string; href: string };
+  onCtaClick?: () => void;
 }
 
-export default function Navbar({ links = [], logo, cta }: NavbarProps) {
+export default function Navbar({ links = [], logo, cta, onCtaClick }: NavbarProps) {
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -22,9 +23,21 @@ export default function Navbar({ links = [], logo, cta }: NavbarProps) {
       </div>
 
       {cta ? (
-        <a className="nav-cta" href={cta.href}>
-          {cta.label}
-        </a>
+        onCtaClick ? (
+          <button
+            className="nav-cta"
+            onClick={(e) => {
+              e.preventDefault();
+              onCtaClick();
+            }}
+          >
+            {cta.label}
+          </button>
+        ) : (
+          <a className="nav-cta" href={cta.href}>
+            {cta.label}
+          </a>
+        )
       ) : null}
     </nav>
   );

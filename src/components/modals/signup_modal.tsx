@@ -5,15 +5,17 @@ import "../../styles/login_modal.css";
 type Props = {
     isOpen: boolean;
     onClose?: () => void;
-    onLogin?: (payload: { role: "user" | "driver"; email: string; password: string }) => void;
-    onSignup?: () => void;
+    onSignup?: (payload: { role: "user" | "driver"; name: string; email: string; password: string; confirmPassword: string }) => void;
+    onLogin?: () => void; // optional handler to switch to login
 };
 
-const LoginModal: React.FC<Props> = ({ isOpen, onClose, onLogin, onSignup }) => {
+const SignupModal: React.FC<Props> = ({ isOpen, onClose, onSignup, onLogin }) => {
     const navigate = useNavigate();
     const [role, setRole] = useState<"user" | "driver">("user");
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const panelRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
@@ -35,16 +37,20 @@ const LoginModal: React.FC<Props> = ({ isOpen, onClose, onLogin, onSignup }) => 
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        const payload = { role, email, password } as const;
-        if (onLogin) onLogin(payload);
-        else console.log("Login submit", payload);
+        if (password !== confirmPassword) {
+            alert("Passwords do not match");
+            return;
+        }
+        const payload = { role, name, email, password, confirmPassword } as const;
+        if (onSignup) onSignup(payload as any);
+        else console.log("Signup submit", payload);
         onClose && onClose();
     };
 
-    const handleSignup = () => {
-        // Delegate signup action to caller (open signup modal). Do not navigate.
-        if (onSignup) onSignup();
+    const goToLogin = () => {
+        if (onLogin) onLogin();
         onClose && onClose();
+        navigate("/login");
     };
 
     return (
@@ -53,12 +59,12 @@ const LoginModal: React.FC<Props> = ({ isOpen, onClose, onLogin, onSignup }) => 
                 className="modal-panel"
                 role="dialog"
                 aria-modal="true"
-                aria-labelledby="login-title"
+                aria-labelledby="signup-title"
                 ref={panelRef}
             >
                 <div className="modal-top">
-                    <div id="login-title" className="modal-title">
-                        Login
+                    <div id="signup-title" className="modal-title">
+                        Sign up
                     </div>
 
                     <div className="role-toggle" role="tablist" aria-label="Role">
@@ -82,6 +88,16 @@ const LoginModal: React.FC<Props> = ({ isOpen, onClose, onLogin, onSignup }) => 
                 </div>
 
                 <form className="modal-body" onSubmit={handleSubmit}>
+
+                    <input
+                        className="modal-input"
+                        type="text"
+                        placeholder="Full name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
+
                     <input
                         className="modal-input"
                         type="email"
@@ -100,12 +116,21 @@ const LoginModal: React.FC<Props> = ({ isOpen, onClose, onLogin, onSignup }) => 
                         required
                     />
 
+                    <input
+                        className="modal-input"
+                        type="password"
+                        placeholder="Confirm password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
+
                     <button className="modal-button" type="submit">
-                        Login
+                        Sign up
                     </button>
 
-                    <div className="signup-link" onClick={handleSignup}>
-                        Don't have an account? Sign up
+                    <div className="signup-link" onClick={goToLogin}>
+                        Already have an account? Log in
                     </div>
                 </form>
             </div>
@@ -113,4 +138,4 @@ const LoginModal: React.FC<Props> = ({ isOpen, onClose, onLogin, onSignup }) => 
     );
 };
 
-export default LoginModal;
+export default SignupModal;
