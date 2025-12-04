@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/user_signup.css'; // import plain CSS (not a CSS module)
+import '../styles/user_signup.css';
 
 const UserSignup: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -13,60 +13,77 @@ const UserSignup: React.FC = () => {
       alert("Passwords don't match!");
       return;
     }
-    // Handle signup logic here, e.g., API call
     console.log('Signing up with:', { username, email, password });
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit} className="form">
-        <h2>User Signup</h2>
-        <div className="inputContainer">
-          <label htmlFor="username" className="label">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="input"
-            required
-          />
+    <div className="backgroundImage">
+      <div className="container">
+        <div className="card">
+          <div className="cardHeader">
+            <div className="logo">
+              <img src="../assets/logo.png" alt="logo" />
+            </div>
+            <div className="brand">
+              <h2>GoKerala</h2>
+              <p className="tagline">Explore God's Own Country</p>
+            </div>
+          </div>
+
+
+          <form onSubmit={handleSubmit} className="formCard">
+            <label htmlFor="username" className="label">Username</label>
+            <input
+              id="username"
+              type="text"
+              className="input"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter your username"
+              required
+            />
+
+            <label htmlFor="email" className="label">Email</label>
+            <input
+              id="email"
+              type="email"
+              className="input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              required
+            />
+
+            <label htmlFor="password" className="label">Password</label>
+            <input
+              id="password"
+              type="password"
+              className="input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+              required
+            />
+
+            <label htmlFor="confirmPassword" className="label">Confirm Password</label>
+            <input
+              id="confirmPassword"
+              type="password"
+              className="input"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirm your password"
+              required
+            />
+
+            <button type="submit" className="button">Sign Up</button>
+          </form>
+
+          <div className="cardFooter">
+            <span>Don't have an account? <a href="/signin">Sign In</a></span>
+          </div>
         </div>
-        <div className="inputContainer">
-          <label htmlFor="email" className="label">Email ID</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="input"
-            required
-          />
-        </div>
-        <div className="inputContainer">
-          <label htmlFor="password" className="label">New Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="input"
-            required
-          />
-        </div>
-        <div className="inputContainer">
-          <label htmlFor="confirmPassword" className="label">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            className="input"
-            required
-          />
-        </div>
-        <button type="submit" className="button">Sign Up</button>
-      </form>
+      </div>
     </div>
   );
 };
